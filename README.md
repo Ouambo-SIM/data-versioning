@@ -319,6 +319,8 @@ dvc add cheese_dataset
 
 DVC creates a small `.dvc` metadata file describing the exact state of the dataset.
 
+Franck Note: with the above command, DVC looks for a local file or directory named cheese_dataset, calculates its hash, copies its contents into the local DVC cache, and creates a tracking file called cheese_dataset.dvc.
+
 ### Push the dataset to GCS
 
 Upload the DVC-tracked dataset files:
@@ -328,6 +330,8 @@ dvc push
 ```
 
 You can now open your GCS bucket and inspect the `dvc_store` folder.
+
+Franck Note: with 'dvc push', DVC identifies your tracked data using its metadata and uploads the necessary cached objects to your configured GCS location.
 
 > 💡 **Tip:** The actual image files are stored in GCS. Git does not need to store these large files directly.
 
